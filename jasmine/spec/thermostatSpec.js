@@ -50,4 +50,32 @@ describe('Thermostat', function() {
     expect(t.temperature).toEqual(20);
   })
 
+  describe('displaying usage levels', function() {
+
+    describe('when the usage is lower than 18', function () {
+      it('is described as low usage', function () {
+        t.down(3);
+        expect(t.energyUsage()).toEqual('low-usage');
+      })
+
+    })
+
+    describe('when the usage is lower than or equal to 25', function () {
+      it('is described as medium usage', function () {
+        t.up(5);
+        expect(t.energyUsage()).toEqual('medium-usage');
+      })
+
+    })
+
+    describe('when the usage is more than 25', function () {
+      it('is described as high usage', function () {
+        t.up(6);
+        expect(t.energyUsage()).toEqual('high-usage');
+      })
+
+    })
+
+  })
+
 });

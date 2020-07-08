@@ -44,4 +44,10 @@ describe('Thermostat', function() {
     expect(t.MAX_TEMPERATURE).toEqual(25);
   })
 
+  it("has a function to reset the temperature to 20 degrees", function() {
+    t.up(5);
+    t.resetTemperature();
+    expect(t.temperature).toEqual(20);
+  })
+
 });

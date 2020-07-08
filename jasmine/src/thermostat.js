@@ -11,12 +11,12 @@ class Thermostat{
 
   down(input){
 
-    var desiredTemperature = this.temperature - input;
+    //var desiredTemperature = this.temperature - input;
 
-    if (( desiredTemperature ) < this.MIN_TEMPERATURE ){
+    if (( this.temperature - input ) < this.MIN_TEMPERATURE ){
       this.temperature = this.MIN_TEMPERATURE;
     } else {
-      this.temperature = desiredTemperature;
+      this.temperature = this.temperature - input;
     }
   }
 

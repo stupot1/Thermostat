@@ -25,4 +25,23 @@ describe('Thermostat', function() {
     expect(t.temperature).toEqual(t.MIN_TEMPERATURE);
   })
 
+  it("is power saving mode on & true", function() {
+    expect(t.powerSavingMode).toBe(true);
+  })
+
+  it("has a default max temperature of 25, with powerSavingMode on", function() {
+    expect(t.MAX_TEMPERATURE).toEqual(25);
+  })
+
+  it("has a max temperature of 32 degrees when power saving mode is off", function() {
+    t.PowerSavingOff();
+    expect(t.MAX_TEMPERATURE).toEqual(32);
+  })
+
+  it("has a max temperature of 25 degrees when power saving mode is on", function() {
+    t.PowerSavingOff();
+    t.PowerSavingOn();
+    expect(t.MAX_TEMPERATURE).toEqual(25);
+  })
+
 });
